@@ -1,0 +1,73 @@
+/*creating a css style for all the buttons to use*/
+.logo{
+    width: 200px;/*for the logo to maintain a circular shape on the cirle, the width needs to stay 100px larger than the height*/ 
+    height: 100px;
+    margin-top: 10px;
+}
+
+.btn-shadow{
+    box-shadow: 5px 5px 5px 5px #c3c3c3;
+}
+.btn-inset{
+    box-shadow: 5px 5px 5px #888888 inset;
+}
+
+.btn-lg{
+    min-width: 120px;
+    max-width: 120px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-circle:hover{
+    background-color: rgb(190, 186, 126);
+}
+
+.jumbotron{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image{
+    background-image: url("/images/Room-Background.jpg");
+    background-color: white;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-box{
+    background: rgba(47, 54, 64, 0.5);
+    padding: 3%;
+    border-radius: 10px;
+    margin: 8%;
+}
+
+.hero-box h1{
+    color: white;
+    text-align: center;
+}
+
+label span{
+    cursor: pointer;
+    padding-left: 13px;
+    padding-right:12px;
+    padding-bottom: 2px;
+    border-radius: 50%;
+    font-size: 75px;
+    background-color: #fff262; 
+    box-shadow: 5px 5px 5px #c3c3c3;
+}
+input{
+    display: none;
+}
+
+input:checked + span{
+    box-shadow: 5px 5px 5px #888888 inset;
+    transition: all .2s ease;
+}
+
+
+
+

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head> <!--this section includes all the links to the important css files for the style and layout of my 
+  website.-->
+    <title>Emoodji</title>
+    <meta name="viewport" content="width = device-width, initial-scale =1">
+    <link rel='stylesheet' href='/stylesheets/emoji.css' />
+    <link rel='stylesheet' href='/stylesheets/FontAwesome/css/all.css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/javascripts/Emooji.js"></script>
+  </head>
+  <body> <!--This first section includes the top section of the website that contains the logo, a large
+  background image to create depth, and a box of information that displays the most important action for the
+  user.-->
+    <div class="container-fluid p-0">
+      <div class="hero-image">
+        <div class="container">
+          <img src="images/Emoodji-Logo.png" id="EmoodjiLogo" alt="Emoodji Logo" class="logo">
+          <div class="hero-box">
+            <h1>Choose an Emoodji to match your mood!</h1>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <!-- Each id relates the mood of
+    the emoji button, and the expected mood of the user. A radio button was used, as when one button is actioned,
+    and the indent is shown, once another buttons is clicked, the first button will pop back up to show that it
+    is no longer in action. Onclick is used for the javascript functions that needs to happen when the button is 
+    clicked. This is the action of the light being turned on, with the parameter being the spe-->
+    <div class="container">
+      <div class="row" style="margin-top: -50px">
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="energised" onclick="SendLightCommand('energised')"/>
+            <span>
+              <i class="fas fa-laugh-squint"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="happy" onclick="SendLightCommand('happy')"/>
+            <span>
+              <i class="fas fa-smile"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="neutral" onclick="SendLightCommand('neutral')"/>
+            <span>
+              <i class="fas fa-meh"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="stressed" onclick="SendLightCommand('stressed')"/>
+            <span>
+              <i class="fas fa-angry"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="tired" onclick="SendLightCommand('tired')"/>
+            <span>
+              <i class="fas fa-tired"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="upset" onclick="SendLightCommand('upset')"/>
+            <span>
+              <i class="fas fa-sad-cry"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col text-center">
+          <label>
+            <input type="radio" name="emoodjis" id="off" onclick="SendLightCommand('off')"/>
+            <span>
+              <i class="fas fa-power-off"></i>
+            </span>
+          </label>
+        </div>
+      </div>  
+    </div>
+
+    <!-- This alert is used when the server cannot talk to the lights. The message only occurs when the 
+    error-message function is called upon because the server is unavailable. It includes bootstrap classes
+    specific to alert messages, and is a red colour as this represent danger, and shows that something
+    is not working how it should.-->
+    <div class="container">
+      <div class="alert alert-danger d-none" id="error-message" role="alert">
+        Sorry we couldn't change your lights. Something seems to have gone wrong.
+      </div>
+
+      <!-- This section includes collapsable buttons for the information regarding what each Emoodji does.
+      Each has bootstrap classes for buttons, uses data-toogle, which tells bootstrap what to do, in this case
+      it is telling it to collapes the information so it is hidden, and the data-target is telling bootstrap which
+      element should be opened. -->
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseEnergised" aria-controls="collapseEnergised">
+              Energised
+            </a>
+          </p>
+          <div class="collapse" id="collapseEnergised">
+            <div class="card card-body">
+              When you are feeling energised, this is a great time to get stuff done. So turn on the lights, and work!
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseHappy" aria-controls="collapseHappy">
+              Happy
+            </a>
+          </p>
+          <div class="collapse" id="collapseHappy">
+            <div class="card card-body">
+              Feeling happy? There are no boundaries for what you can achieve! Whether you want to relax, or get some work done, this light accommodates for all possible scenarios.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseNeutral" aria-controls="collapseNeutral">
+              Neutral
+            </a> 
+          </p>
+          <div class="collapse" id="collapseNeutral">
+            <div class="card card-body">
+              Not matching any of our other moods? Feel free to be productive or just sit and read a good book, either would work great with this warm neutral light.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseAngry" aria-controls="collapseAngry">
+              Angry
+            </a>
+          </p>
+          <div class="collapse" id="collapseAngry">
+            <div class="card card-body">
+              We all feel a bit angry at some point. Use this anger to get stuff done! Relax and calm yourself down, or get some good work done, do both with this light.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseTired" aria-controls="collapseTired">
+              Tired
+            </a>
+          </p>
+          <div class="collapse" id="collapseTired">
+            <div class="card card-body">
+                Ready for sleep? Prepare your eyes for a good nights sleep by turning on this light, and get ready for some good dreams tonight.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseUpset" aria-controls="collapseUpset">
+              Upset
+            </a>
+          </p>
+          <div class="collapse" id="collapseUpset">
+            <div class="card card-body">
+              Feeling sad has never felt so relaxing with this light! Maybe you need a nap, maybe you need a dark space to cry, what ever it is you need, we've provided the best light for it.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="text-center">
+            <a class="btn btn-info btn-lg" data-toggle="collapse" data-target="#collapseOff" aria-controls="collapseOff">
+              Off
+            </a>
+          </p>
+          <div class="collapse" id="collapseOff">
+            <div class="card card-body">
+              Want to turn the light off? Maybe you are ready for bed, leaving the house, or you just don't need to the lights on anymore. Use this to simply turn your lights off.
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+  </body>
+</html>
